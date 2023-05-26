@@ -34,12 +34,12 @@ for specification in reqif_bundle.core_content.req_if_content.specifications:
         Type = reqif_bundle.get_spec_object_type_by_ref(obj.spec_object_type)
         InfoDict = {}
 
-        Description = obj.description
-
         Type = Type.long_name #Attribute Type
         for attribute in obj.attributes:
             ref = attribute.definition_ref
             name = reqif_bundle.lookup.spec_types_lookup[obj.spec_object_type].attribute_map[ref].long_name
+            if name == "ReqIF.Description": #Description
+                Description = attribute.value
             if name == "ReqIF.ForeignCreatedOn": #Created on
                 CreatedOn = attribute.value
             if name == "ReqIF.ForeignModifiedBy": #Contributor
