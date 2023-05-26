@@ -9,7 +9,7 @@ with open(input_file_path, "r") as content:
     object = json.load(content)
     
     requirements = object["List Artifact Info"]
-    with open("ouput_task2.rst", "w") as f:
+    with open("output_task2.rst", "w") as f:
         rstData = RstCloth(f)
         rstData.title(object["Module Name"])
         rstData.newline()
